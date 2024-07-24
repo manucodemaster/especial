@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Especial</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container, .container2, .container3 {
+            text-align: center;
+            color: white;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            display: flex;
+            background: linear-gradient(to top, #FF5F6D 0%, #FFC371 100%);
+        }
+        .container2 {
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDN8fGxha2UlMjBtb3VudGFpbnN8ZW58MHx8fHwxNjI5ODQ0MTc5&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center;
+            background-size: cover;
+        }
+        .container3 {
+            background: url('https://www.pngplay.com/wp-content/uploads/10/Anger-Png-Image.png') no-repeat center center;
+            background-size: contain;
+            background-color: #000;
+            color: white;
+        }
+        .sun {
+            width: 10vw;
+            height: 10vw;
+            background: yellow;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: rise 3s ease-in-out forwards, oscillate 4s ease-in-out infinite;
+        }
+        .rays {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30vw;
+            height: 30vw;
+            background: radial-gradient(circle, rgba(255, 255, 0, 0) 50%, rgba(255, 255, 0, 0.7) 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: spin 10s linear infinite;
+            z-index: -1;
+        }
+        @keyframes spin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes rise {
+            0% {
+                transform: translate(-50%, 100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+        @keyframes oscillate {
+            0%, 100% {
+                transform: translate(-50%, 0) translateY(0);
+            }
+            50% {
+                transform: translate(-50%, 0) translateY(-2%);
+            }
+        }
+        .message {
+            font-size: 4vw;
+            animation: fadeIn 4s ease-in-out forwards;
+            animation-delay: 3s;
+            opacity: 0;
+        }
+        .message2 {
+            font-size: 4vw;
+            animation: fadeIn 4s ease-in-out forwards;
+            animation-delay: 6s;
+            opacity: 0;
+        }
+        .message3, .message4 {
+            font-size: 4vw;
+            animation: fadeIn 4s ease-in-out forwards;
+            opacity: 0;
+        }
+        .message4 {
+            animation-delay: 3s;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .mountains {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #3f784c 0%, #6cbf84 100%);
+            clip-path: polygon(0 100%, 25% 30%, 50% 100%, 75% 50%, 100% 100%);
+        }
+        .mountains:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, #6cbf84 0%, #3f784c 100%);
+            clip-path: polygon(0 100%, 30% 40%, 60% 100%, 90% 60%, 100% 100%);
+            z-index: -1;
+        }
+        .button {
+            font-size: 2vw;
+            padding: 1vw 2vw;
+            background-color: #ff7f50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            animation: fadeIn 4s ease-in-out forwards;
+            opacity: 0;
+        }
+        .button2 {
+            animation-delay: 8s;
+        }
+        .button3 {
+            animation-delay: 4s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container1">
+        <div class="sun">
+            <div class="rays"></div>
+        </div>
+        <div class="message">Eres muy especial para mí</div>
+        <div class="message message2">Te extraño mucho</div>
+        <button class="button button2" onclick="showSecondScreen()">Ver más</button>
+        <div class="mountains"></div>
+    </div>
+    <div class="container2" id="container2">
+        <div class="message3">Te envío muchos abrazos</div>
+        <button class="button button3" onclick="showThirdScreen()">Ver más</button>
+    </div>
+    <div class="container3" id="container3">
+        <div class="message4">Gruñona</div>
+        <div class="message4">🤪🤪😛😛😂😂😂</div>
+    </div>
+    <script>
+        function showSecondScreen() {
+            document.getElementById('container1').style.display = 'none';
+            document.getElementById('container2').style.display = 'flex';
+        }
+
+        function showThirdScreen() {
+            document.getElementById('container2').style.display = 'none';
+            document.getElementById('container3').style.display = 'flex';
+        }
+
+        // Mostrar la primera pantalla
+        document.getElementById('container1').style.display = 'flex';
+    </script>
+</body>
+</html>
