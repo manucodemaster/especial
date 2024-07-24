@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
             overflow: hidden;
         }
-        .container, .container2, .container3 {
+        .container, .container2, .container3, .container4 {
             text-align: center;
             color: white;
             position: absolute;
@@ -35,6 +35,9 @@
             background-size: contain;
             background-color: #000;
             color: white;
+        }
+        .container4 {
+            background-color: #222;
         }
         .sun {
             width: 10vw;
@@ -143,6 +146,28 @@
         .button3 {
             animation-delay: 4s;
         }
+        .unselectable-button {
+            font-size: 2vw;
+            padding: 1vw 2vw;
+            background-color: #ff7f50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            position: absolute; /* Cambiado a absolute para poder moverlo a diferentes posiciones */
+            transition: transform 0.5s; /* Transición suave para el movimiento */
+        }
+        .selectable-button {
+            font-size: 2vw;
+            padding: 1vw 2vw;
+            background-color: #ff7f50;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        #emojiContainer {
+            font-size: 4vw;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -161,7 +186,12 @@
     </div>
     <div class="container3" id="container3">
         <div class="message4">Gruñona</div>
-        <div class="message4">🤪🤪😛😛😂😂😂</div>
+        <div class="message4" id="emojiContainer">🤪🤪😛😛😂😂😂</div>
+        <button class="button button2" id="clicButton" onclick="showFourthScreen()">Clic acá</button>
+    </div>
+    <div class="container4" id="container4">
+        <button class="selectable-button" onclick="showEmojis()">Sí soy Gruñona</button>
+        <button class="unselectable-button" id="unselectableButton" onmousedown="moveButton()">No soy Gruñona</button>
     </div>
     <script>
         function showSecondScreen() {
@@ -172,6 +202,28 @@
         function showThirdScreen() {
             document.getElementById('container2').style.display = 'none';
             document.getElementById('container3').style.display = 'flex';
+        }
+
+        function showFourthScreen() {
+            document.getElementById('container3').style.display = 'none';
+            document.getElementById('container4').style.display = 'flex';
+            // Asegúrate de ocultar el botón "Clic acá" aquí
+            document.getElementById('clicButton').style.display = 'none';
+        }
+
+        function showEmojis() {
+            document.getElementById('container4').style.display = 'none';
+            document.getElementById('container3').style.display = 'flex';
+            document.getElementById('emojiContainer').innerHTML = 'super gruñona 😡😂🤪🥵';
+            // Eliminar el botón "Clic acá" en la pantalla final
+            document.getElementById('clicButton').style.display = 'none';
+        }
+
+        function moveButton() {
+            const button = document.getElementById('unselectableButton');
+            const newX = Math.random() * (window.innerWidth - button.offsetWidth);
+            const newY = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.transform = `translate(${newX}px, ${newY}px)`;
         }
 
         // Mostrar la primera pantalla
