@@ -21,114 +21,15 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            font-size: 5vw; /* Tamaño de los emojis */
+            background: none; /* Fondo transparente para resaltar los emojis */
         }
         .container {
             display: flex;
             background: linear-gradient(to top, #FF5F6D 0%, #FFC371 100%);
         }
-        .container2 {
-            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDN8fGxha2UlMjBtb3VudGFpbnN8ZW58MHx8fHwxNjI5ODQ0MTc5&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center;
-            background-size: cover;
-        }
-        .container3 {
-            background: url('https://www.pngplay.com/wp-content/uploads/10/Anger-Png-Image.png') no-repeat center center;
-            background-size: contain;
-            background-color: #000;
-            color: white;
-        }
-        .container4 {
-            background-color: #222;
-        }
-        .sun {
-            width: 10vw;
-            height: 10vw;
-            background: yellow;
-            border-radius: 50%;
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: rise 3s ease-in-out forwards, oscillate 4s ease-in-out infinite;
-        }
-        .rays {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 30vw;
-            height: 30vw;
-            background: radial-gradient(circle, rgba(255, 255, 0, 0) 50%, rgba(255, 255, 0, 0.7) 70%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            animation: spin 10s linear infinite;
-            z-index: -1;
-        }
-        @keyframes spin {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        @keyframes rise {
-            0% {
-                transform: translate(-50%, 100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(-50%, 0);
-                opacity: 1;
-            }
-        }
-        @keyframes oscillate {
-            0%, 100% {
-                transform: translate(-50%, 0) translateY(0);
-            }
-            50% {
-                transform: translate(-50%, 0) translateY(-2%);
-            }
-        }
-        .message {
-            font-size: 4vw;
-            animation: fadeIn 4s ease-in-out forwards;
-            animation-delay: 3s;
-            opacity: 0;
-        }
-        .message2 {
-            font-size: 4vw;
-            animation: fadeIn 4s ease-in-out forwards;
-            animation-delay: 6s;
-            opacity: 0;
-        }
-        .message3, .message4 {
-            font-size: 4vw;
-            animation: fadeIn 4s ease-in-out forwards;
-            opacity: 0;
-        }
-        .message4 {
-            animation-delay: 3s;
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        .mountains {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, #3f784c 0%, #6cbf84 100%);
-            clip-path: polygon(0 100%, 25% 30%, 50% 100%, 75% 50%, 100% 100%);
-        }
-        .mountains:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 60%;
-            background: linear-gradient(to top, #6cbf84 0%, #3f784c 100%);
-            clip-path: polygon(0 100%, 30% 40%, 60% 100%, 90% 60%, 100% 100%);
-            z-index: -1;
+        .container2, .container3, .container4 {
+            background-color: #222; /* Fondo oscuro para resaltar los emojis */
         }
         .button {
             font-size: 2vw;
@@ -146,52 +47,31 @@
         .button3 {
             animation-delay: 4s;
         }
-        .unselectable-button {
-            font-size: 2vw;
-            padding: 1vw 2vw;
-            background-color: #ff7f50;
-            border: none;
-            color: white;
-            cursor: pointer;
-            position: absolute; /* Cambiado a absolute para poder moverlo a diferentes posiciones */
-            transition: transform 0.5s; /* Transición suave para el movimiento */
-        }
-        .selectable-button {
-            font-size: 2vw;
-            padding: 1vw 2vw;
-            background-color: #ff7f50;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-        #emojiContainer {
-            font-size: 4vw;
-            margin-top: 20px;
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container" id="container1">
-        <div class="sun">
-            <div class="rays"></div>
-        </div>
-        <div class="message">Doña Gruñis</div>
-        <div class="message message2">Te extraño</div>
+        😘😘😘😘😘😘😘😘😘😘😘😘
         <button class="button button2" onclick="showSecondScreen()">Ver más</button>
-        <div class="mountains"></div>
     </div>
     <div class="container2" id="container2">
-        <div class="message3">Te envío muchos abrazos</div>
+        😘😘😘😘😘😘😘😘😘😘😘😘
         <button class="button button3" onclick="showThirdScreen()">Ver más</button>
     </div>
     <div class="container3" id="container3">
-        <div class="message4">Gruñona</div>
-        <div class="message4" id="emojiContainer">🤪🤪😛😛😂😂😂</div>
+        😘😘😘😘😘😘😘😘😘😘😘😘
         <button class="button button2" id="clicButton" onclick="showFourthScreen()">Clic acá</button>
     </div>
     <div class="container4" id="container4">
-        <button class="selectable-button" onclick="showEmojis()">Sí soy Gruñona</button>
-        <button class="unselectable-button" id="unselectableButton" onmousedown="moveButton()">No soy Gruñona</button>
+        😘😘😘😘😘😘😘😘😘😘😘😘
     </div>
     <script>
         function showSecondScreen() {
@@ -207,26 +87,14 @@
         function showFourthScreen() {
             document.getElementById('container3').style.display = 'none';
             document.getElementById('container4').style.display = 'flex';
-            // Asegúrate de ocultar el botón "Clic acá" aquí
             document.getElementById('clicButton').style.display = 'none';
-        }
-
-        function showEmojis() {
-            document.getElementById('container4').style.display = 'none';
-            document.getElementById('container3').style.display = 'flex';
-            document.getElementById('emojiContainer').innerHTML = 'super gruñona 😡😂🤪🥵 Segui cantando tu "Felicita" que se te escucha chistoso... jajaja bromas 🤣🤣';
-            // Eliminar el botón "Clic acá" en la pantalla final
-            document.getElementById('clicButton').style.display = 'none';
-        }
-
-        function moveButton() {
-            const button = document.getElementById('unselectableButton');
-            const newX = Math.random() * (window.innerWidth - button.offsetWidth);
-            const newY = Math.random() * (window.innerHeight - button.offsetHeight);
-            button.style.transform = `translate(${newX}px, ${newY}px)`;
         }
 
         // Mostrar la primera pantalla
+        document.getElementById('container1').style.display = 'flex';
+    </script>
+</body>
+</html>
         document.getElementById('container1').style.display = 'flex';
     </script>
 </body>
