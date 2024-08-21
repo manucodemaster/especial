@@ -26,6 +26,10 @@
         .container1 {
             display: flex;
             background: linear-gradient(to top, #FF5F6D 0%, #FFC371 100%);
+            flex-direction: row; /* Organiza los emojis en una fila */
+        }
+        .container1 span {
+            margin: 0 1vw; /* Espaciado entre los emojis */
         }
         .container2 {
             background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
@@ -123,11 +127,6 @@
             document.getElementById('message' + screenNumber).style.opacity = '1';
         }
 
-        // Mostrar la primera pantalla al cargar la página
-        showScreen(1);
-    </script>
-</body>
-</html>
         // Mostrar la primera pantalla al cargar la página
         showScreen(1);
     </script>
