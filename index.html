@@ -22,41 +22,20 @@
             align-items: center;
             flex-direction: column;
             font-size: 5vw; /* Tamaño de los emojis */
+            background-image: url('https://link_to_stitch_image.jpg'); /* URL de la imagen de Stitch */
+            background-size: cover;
+            background-position: center;
         }
         .container1 {
             display: flex;
-            background: linear-gradient(to top, #FF5F6D 0%, #FFC371 100%);
-            flex-direction: row; /* Organiza los emojis en una fila */
+            background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para destacar los emojis */
+            flex-direction: row;
+            flex-wrap: wrap; /* Permite que los emojis se distribuyan en varias líneas */
+            padding: 1vw;
         }
         .container1 span {
-            margin: 0 1vw; /* Espaciado entre los emojis */
-        }
-        .container2 {
-            background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-        }
-        .container3 {
-            background: linear-gradient(to top, #fa709a 0%, #fee140 100%);
-        }
-        .container4 {
-            background: linear-gradient(to right, #36d1dc 0%, #5b86e5 100%);
-        }
-        .container5 {
-            background: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
-        }
-        .container6 {
-            background: linear-gradient(to right, #f7971e 0%, #ffd200 100%);
-        }
-        .container7 {
-            background: linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%);
-        }
-        .container8 {
-            background: linear-gradient(to right, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-        }
-        .container9 {
-            background: linear-gradient(to right, #cfd9df 0%, #e2ebf0 100%);
-        }
-        .container10 {
-            background: linear-gradient(to top, #a1c4fd 0%, #c2e9fb 100%);
+            margin: 0.5vw;
+            cursor: pointer; /* Cambia el cursor al pasar sobre los emojis */
         }
         .message {
             font-size: 7vw;
@@ -76,58 +55,24 @@
 </head>
 <body>
     <div class="container container1" id="container1">
-        <span onclick="showScreen(2)">😘</span>
-        <span onclick="showScreen(3)">😘</span>
-        <span onclick="showScreen(4)">😘</span>
-        <span onclick="showScreen(5)">😘</span>
-        <span onclick="showScreen(6)">😘</span>
-        <span onclick="showScreen(7)">😘</span>
-        <span onclick="showScreen(8)">😘</span>
-        <span onclick="showScreen(9)">😘</span>
-        <span onclick="showScreen(10)">😘</span>
-        <span onclick="showScreen(11)">😘</span>
+        <!-- Repetimos los emojis para dar la sensación de "millones de besos" -->
+        <!-- Añade más emojis según sea necesario para completar el efecto deseado -->
+        ${'<span onclick="showScreen(2)">😘</span>'.repeat(100)}
     </div>
-    <div class="container container2" id="container2">
-        <div class="message" id="message2">TE QUIERO</div>
-    </div>
-    <div class="container container3" id="container3">
-        <div class="message" id="message3">TE QUIERO</div>
-    </div>
-    <div class="container container4" id="container4">
-        <div class="message" id="message4">TE QUIERO</div>
-    </div>
-    <div class="container container5" id="container5">
-        <div class="message" id="message5">TE QUIERO</div>
-    </div>
-    <div class="container container6" id="container6">
-        <div class="message" id="message6">TE QUIERO</div>
-    </div>
-    <div class="container container7" id="container7">
-        <div class="message" id="message7">TE QUIERO</div>
-    </div>
-    <div class="container container8" id="container8">
-        <div class="message" id="message8">TE QUIERO</div>
-    </div>
-    <div class="container container9" id="container9">
-        <div class="message" id="message9">TE QUIERO</div>
-    </div>
-    <div class="container container10" id="container10">
-        <div class="message" id="message10">TE QUIERO</div>
-    </div>
+    <!-- Continúan las pantallas 2 a 10 con el mismo fondo de Stitch -->
+    ${[...Array(10).keys()].map(i => `
+        <div class="container container${i + 2}" id="container${i + 2}">
+            <div class="message" id="message${i + 2}">TE QUIERO</div>
+        </div>`).join('')}
     <script>
         function showScreen(screenNumber) {
-            // Ocultar todas las pantallas
             for (let i = 1; i <= 10; i++) {
                 document.getElementById('container' + i).style.display = 'none';
             }
-            // Mostrar la pantalla correspondiente
             document.getElementById('container' + screenNumber).style.display = 'flex';
-
-            // Mostrar el mensaje "TE QUIERO" después de mostrar la pantalla
             document.getElementById('message' + screenNumber).style.opacity = '1';
         }
 
-        // Mostrar la primera pantalla al cargar la página
         showScreen(1);
     </script>
 </body>
